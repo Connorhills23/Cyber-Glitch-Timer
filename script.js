@@ -1,4 +1,4 @@
-let totalSeconds = 10;
+let totalSeconds = 600;
 let timerInterval = null;
 
 const display = document.getElementById("display");
