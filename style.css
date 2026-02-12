@@ -1,0 +1,172 @@
+/* Base Layout */
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #0f0f1a, #000);
+  font-family: "Courier New", monospace;
+  color: #00f7ff;
+  overflow: hidden;
+  position: relative;
+}
+
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+/* Timer */
+
+.timer {
+  font-size: 100px;
+  letter-spacing: 6px;
+  margin-bottom: 40px;
+  text-shadow:
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #00f7ff;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    text-shadow: 0 0 10px #00f7ff;
+  }
+  to {
+    text-shadow: 0 0 40px #00f7ff;
+  }
+}
+
+/* Buttons */
+
+.buttons button {
+  padding: 15px 35px;
+  margin: 10px;
+  font-size: 18px;
+  border: 2px solid #ff00ff;
+  border-radius: 30px;
+  background: transparent;
+  color: #ff00ff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #ff00ff inset;
+}
+
+.buttons button:hover {
+  background: #ff00ff;
+  color: black;
+}
+
+/* Red Alert */
+
+.red-alert {
+  animation: flashBackground 0.4s infinite alternate;
+}
+
+@keyframes flashBackground {
+  from {
+    background: black;
+  }
+  to {
+    background: #3a0000;
+  }
+}
+
+/* Glitch Text */
+
+.alert-text {
+  color: #ff003c !important;
+  text-shadow:
+    0 0 20px #ff003c,
+    0 0 40px #ff003c,
+    0 0 80px #ff003c;
+  animation: glitchText 0.2s infinite;
+}
+
+@keyframes glitchText {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(3px, -3px);
+  }
+  60% {
+    transform: translate(-2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Full Screen Glitch Overlay */
+
+.glitch-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 0, 0.1),
+    rgba(255, 0, 0, 0.1) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glitch-active {
+  animation: glitchScreen 0.15s infinite;
+  opacity: 1;
+}
+
+@keyframes glitchScreen {
+  0% {
+    transform: translate(0);
+  }
+  25% {
+    transform: translate(-5px, 5px);
+  }
+  50% {
+    transform: translate(5px, -5px);
+  }
+  75% {
+    transform: translate(-3px, 3px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Boot Screen */
+
+.boot-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  color: #00ff66;
+  font-family: monospace;
+  padding: 40px;
+  box-sizing: border-box;
+  display: none;
+  z-index: 5;
+  white-space: pre-line;
+  font-size: 18px;
+}
+
+.boot-active {
+  display: block;
+}
